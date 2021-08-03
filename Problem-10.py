@@ -1,4 +1,4 @@
-
+# Find the sum of all the primes below two million.
 def func():
     sum = 0
     for i in range(2, 2000000):
