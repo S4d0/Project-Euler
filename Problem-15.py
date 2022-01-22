@@ -1,13 +1,19 @@
-# 2^15 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
+import numpy as np
 
-# What is the sum of the digits of the number 2^1000?
+matrix = np.zeros((21,21),  dtype=np.int64)      # defined 20x20 matrix
 
-a = pow(2,1000)
-numberS = str(a)
+for i in range(0,21):
+    matrix [i][0] = 1
+    matrix [0][i] = 1
 
-sum = 0
-for i in range(0,len(numberS)):
-    a = int(numberS[i])
-    sum += a
+for i in range(0,21):
+    matrix [i][0] = 1
+    matrix [0][i] = 1
 
-print(sum)
+
+for j in range(0, 20):
+    for i in range(0, 20):
+        matrix [i+1][j+1] = matrix [i][j+1] + matrix [i+1][j]
+
+
+print(matrix[20][20])
